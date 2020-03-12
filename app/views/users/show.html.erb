@@ -4,9 +4,7 @@
 
 <h2>Your Discussion</h2>
 <div class="all-messages">
-  <% @messages.each do |message| %>
-    <p><%= message.text %> --- <%= message.user.username %></p>
-  <% end %>
+  <%= render @messages %>
 </div>
 
 

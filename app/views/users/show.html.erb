@@ -1,0 +1,17 @@
+<h1>
+  Welcome back <%= @user.username %>!
+</h1>
+
+<h2>Your Discussion</h2>
+<div class="all-messages">
+  <% @messages.each do |message| %>
+    <p><%= message.text %></p>
+  <% end %>
+</div>
+
+
+<div class="">
+  <label>Say something:</label><br>
+  <input type="text" class="message-input" data-user-id="<%= @user.id %>">
+  <%= button_tag "Submit", class: "submit-button" %>
+</div>

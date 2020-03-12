@@ -1,0 +1,8 @@
+<h1>Select Your Username to Begin Chatting</h1>
+
+<% @users.each do |user| %>
+  <div class="">
+    <%= button_to "#{user.username}", user_path(user), method: :get %>
+    </br>
+  </div>
+<% end %>

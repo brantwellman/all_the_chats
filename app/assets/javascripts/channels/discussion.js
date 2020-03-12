@@ -6,10 +6,7 @@ App.discussion = App.cable.subscriptions.create("DiscussionChannel", {
     // Called when the subscription has been terminated by the server
   },
   received: function(data) {
-    console.log("DATA", data)
-    debugger
-    const text = data.message.text;
-    $('.all-messages').append(text);
+    $('.all-messages').append(data.message);
   },
   chat: function(data) {
     this.perform('chat', data);
@@ -26,5 +23,6 @@ App.discussion = App.cable.subscriptions.create("DiscussionChannel", {
       text: text,
       user_id: userId
     });
+    input.val('');
   });
 }).call(this);

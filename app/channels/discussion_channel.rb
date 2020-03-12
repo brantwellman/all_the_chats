@@ -8,7 +8,8 @@ class DiscussionChannel < ApplicationCable::Channel
   end
 
   def chat(message)
-    # binding.pry
-    ActionCable.server.broadcast "discussion_channel", message: message
+    message = Message.create(text: message['text'], user_id: message['user_id'])
+    message_partial = ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
+    ActionCable.server.broadcast "discussion_channel", message: message_partial
   end
 end

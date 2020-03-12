@@ -7,6 +7,9 @@ App.discussion = App.cable.subscriptions.create("DiscussionChannel", {
   },
   received: function(data) {
     console.log("DATA", data)
+    debugger
+    const text = data.message.text;
+    $('.all-messages').append(text);
   },
   chat: function(data) {
     this.perform('chat', data);

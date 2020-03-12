@@ -8,6 +8,7 @@ class DiscussionChannel < ApplicationCable::Channel
   end
 
   def chat(message)
+    # binding.pry
     ActionCable.server.broadcast "discussion_channel", message: message
   end
 end
